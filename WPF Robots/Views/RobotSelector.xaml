@@ -13,7 +13,7 @@
             <StackPanel Orientation="Horizontal">
           
                 <TextBlock x:Name="MainButtonText" Text="Wszystkie" VerticalAlignment="Center" Margin="5"/>
-                <Image x:Name="MainButtonTextImage"  Source="pack://application:,,,/Images/robot_black.png" Width="20" Height="20" Margin="5"/>
+                <Image x:Name="MainButtonTextImage"  Source="pack://application:,,,/Images/robot_black.png" Width="20" Height="20" Margin="2"/>
             </StackPanel> 
 
             
