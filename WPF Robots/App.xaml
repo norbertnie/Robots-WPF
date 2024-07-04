@@ -1,0 +1,29 @@
+﻿<Application x:Class="WPF_Robots.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:WPF_Robots.Converters"
+             xmlns:local="clr-namespace:WPF_Robots.Resources"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <converters:StatusToBorderBrushConverter x:Key="StatusToBorderBrushConverter"/>
+        <local:StatusToColorConverter x:Key="StatusToColorConverter" />
+        <converters:StatusToImageConverter x:Key="StatusToImageConverter"/>
+        <converters:StatusToImageConverter x:Key="RobotImageConverter"/>
+         
+        <!-- Styl przycisków -->
+        <!--<Style TargetType="Button">
+            <Setter Property="Foreground" Value="black"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="White"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Foreground" Value="black"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>-->
+
+ 
+        
+        
+    </Application.Resources>
+</Application> 

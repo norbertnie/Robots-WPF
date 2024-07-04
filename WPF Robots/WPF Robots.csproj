@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>WPF_Robots</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\arrows.png" />
+    <None Remove="Images\battery_4_black.png" />
+    <None Remove="Images\check.png" />
+    <None Remove="Images\error.png" />
+    <None Remove="Images\export_notes_white.png" />
+    <None Remove="Images\fanuc_black.png" />
+    <None Remove="Images\omron_black.png" />
+    <None Remove="Images\robot_1_black.png" />
+    <None Remove="Images\robot_2_black.png" />
+    <None Remove="Images\robot_3_black.png" />
+    <None Remove="Images\robot_4_black.png" />
+    <None Remove="Images\robot_black.png" />
+    <None Remove="Images\robot_white.png" />
+    <None Remove="Images\shield_with_heart.png" />
+    <None Remove="Images\warning.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Resources\AppDesignSystem.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\AppDesignSystem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.6" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.4.3" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="xunit.extensibility.execution" Version="2.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\arrows.png" />
+    <Resource Include="Images\battery_4_black.png" />
+    <Resource Include="Images\check.png" />
+    <Resource Include="Images\error.png" />
+    <Resource Include="Images\export_notes_white.png" />
+    <Resource Include="Images\fanuc_black.png" />
+    <Resource Include="Images\omron_black.png" />
+    <Resource Include="Images\robot_1_black.png" />
+    <Resource Include="Images\robot_2_black.png" />
+    <Resource Include="Images\robot_3_black.png" />
+    <Resource Include="Images\robot_4_black.png" />
+    <Resource Include="Images\robot_black.png" />
+    <Resource Include="Images\robot_white.png" />
+    <Resource Include="Images\shield_with_heart.png" />
+    <Resource Include="Images\warning.png" />
+  </ItemGroup>
+
+</Project>

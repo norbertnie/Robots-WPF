@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="WPF_Robots.RobotSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:WPF_Robots"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="400">
+
+    <Grid>
+        <Button x:Name="MainButton" Width="100" Height="30" Background="White" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" Click="MainButton_Click">
+            <StackPanel Orientation="Horizontal">
+          
+                <TextBlock x:Name="MainButtonText" Text="Wszystkie" VerticalAlignment="Center" Margin="5"/>
+                <Image x:Name="MainButtonTextImage"  Source="pack://application:,,,/Images/robot_black.png" Width="20" Height="20" Margin="5"/>
+            </StackPanel> 
+
+            
+        </Button>
+        <Popup x:Name="RobotPopup" PlacementTarget="{Binding ElementName=MainButton}" StaysOpen="False">
+            <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="5" Padding="5">
+                <ItemsControl x:Name="RobotButtonsContainer">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="2"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Width="100" Height="30" Margin="5" Click="RobotButton_Click" Background="White" >
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding ImagePath}" Width="20" Height="20" Margin="5"/>
+                                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="5"/>
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Border>
+        </Popup>
+    </Grid>
+</UserControl>
