@@ -50,9 +50,7 @@
 
 ### 1.	Ładowanie robotów:
 
-•	Po uruchomieniu aplikacji, wywoływana jest metoda LoadRobots(), która ładuje dane robotów z bazy danych i przypisuje je do kolekcji Robots. Dodatkowo,
-  	  do listy robotów dodawana jest opcja "Wszystkie" (reprezentowana przez robota z Id 
-      równym -1).
+•	Po uruchomieniu aplikacji, wywoływana jest metoda LoadRobots(), która ładuje dane robotów z bazy danych i przypisuje je do kolekcji Robots. 
 
 ### 2.	Wyświetlanie robotów:
 
