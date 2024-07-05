@@ -15,8 +15,6 @@ Struktura aplikacji WPF Robots
     •	CurrentPage: Aktualna strona w paginacji robotów.
    
 
-
-
   Polecenia (Commands):
 
     •	LoadRobotsCommand: Polecenie ładowania robotów z bazy danych.
@@ -28,10 +26,10 @@ Struktura aplikacji WPF Robots
 
   Metody:
   
-  •	LoadRobots(): Ładuje roboty z bazy danych.
-  •	UpdateRobot(): Aktualizuje wybranego robota lub wszystkie roboty, jeśli wybrana jest opcja "Wszystkie".
-  •	UpdateVisibleRobots(): Aktualizuje listę widocznych robotów na podstawie wybranego robota i bieżącej strony.
-  •	Metody związane z paginacją: PreviousPage(), NextPage(), SelectPreviousRobot(), SelectNextRobot(), oraz ich warunki (CanPreviousPage(), CanNextPage(), CanSelectPreviousRobot(), CanSelectNextRobot()).
+    •	LoadRobots(): Ładuje roboty z bazy danych.
+    •	UpdateRobot(): Aktualizuje wybranego robota lub wszystkie roboty, jeśli wybrana jest opcja "Wszystkie".
+    •	UpdateVisibleRobots(): Aktualizuje listę widocznych robotów na podstawie wybranego robota i bieżącej strony.
+    •	Metody związane z paginacją: PreviousPage(), NextPage(), SelectPreviousRobot(), SelectNextRobot(), oraz ich warunki (CanPreviousPage(), CanNextPage(), CanSelectPreviousRobot(), CanSelectNextRobot()).
 
 3.	Widoki (Views)
 
