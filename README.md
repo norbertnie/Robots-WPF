@@ -7,13 +7,18 @@ Struktura aplikacji WPF Robots
 
   •	RobotViewModel: Jest to ViewModel dla aplikacji, który stosuje wzorzec MVVM (Model-View-ViewModel).
 
-  Właściwości:
+  Właściwości:   
+  
     •	Robots: Obserwowalna kolekcja obiektów Robot, reprezentująca wszystkie roboty.
     •	VisibleRobots: Obserwowalna kolekcja obiektów Robot, które są aktualnie widoczne w interfejsie użytkownika.
     •	SelectedRobot: Aktualnie wybrany robot.
     •	CurrentPage: Aktualna strona w paginacji robotów.
+   
+
+
 
   Polecenia (Commands):
+
     •	LoadRobotsCommand: Polecenie ładowania robotów z bazy danych.
     •	UpdateRobotCommand: Polecenie aktualizacji robota lub robotów.
     •	PreviousPageCommand: Polecenie przejścia do poprzedniej strony robotów.
@@ -33,6 +38,8 @@ Struktura aplikacji WPF Robots
   •	MainWindow.xaml: Główny widok aplikacji, który definiuje interfejs użytkownika.
    
   Składa się z dwóch głównych sekcji:
+  
+
     •	Górna siatka (Grid) z menu, zawierająca przyciski nawigacyjne do wybierania robotów, przyciski do ładowania i aktualizowania robotów oraz kontrolkę RobotSelector.
     •	Dolna siatka (Grid) z kafelkami robotów, która wyświetla widoczne roboty w kontrolce ItemsControl.
 
