@@ -37,6 +37,7 @@ Struktura aplikacji WPF Robots
       •	Dolna siatka (Grid) z kafelkami robotów, która wyświetla widoczne roboty w kontrolce ItemsControl.
 
   •	RobotSelector.xaml: Niestandardowa kontrolka użytkownika, umożliwiająca wybór robota z listy. 
+  
       •	Składa się z przycisku głównego (MainButton), który wyświetla aktualnie wybranego robota, oraz popupu (Popup) zawierającego przyciski dla każdego robota.
 
 Sposób działania aplikacji
