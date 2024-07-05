@@ -22,6 +22,7 @@ Struktura aplikacji WPF Robots
       •	SelectNextRobotCommand: Polecenie wyboru następnego robota na liście.
 
   Metody:
+  
       •	LoadRobots(): Ładuje roboty z bazy danych.
       •	UpdateRobot(): Aktualizuje wybranego robota lub wszystkie roboty, jeśli wybrana jest opcja "Wszystkie".
       •	UpdateVisibleRobots(): Aktualizuje listę widocznych robotów na podstawie wybranego robota i bieżącej strony.
