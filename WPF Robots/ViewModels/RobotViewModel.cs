@@ -109,17 +109,30 @@ namespace WPF_Robots.ViewModels
         {
             using (var context = new RobotContext())
             {
-                foreach (var robot in Robots.Where(r => r.Id != -1))
-                { 
-                    var newStatusList = Statuses.Where(s => s != robot.Status).ToList();
-                    robot.Status = newStatusList[_random.Next(newStatusList.Count)];
-                    robot.BatteryLevel = Math.Max(0, robot.BatteryLevel - 10);  
-    
+                if (SelectedRobot != null && SelectedRobot.Id == -1)
+                {
+                    // Zaktualizuj wszystkie roboty
+                    foreach (var robot in Robots.Where(r => r.Id != -1))
+                    {
+                        var newStatusList = Statuses.Where(s => s != robot.Status).ToList();
+                        robot.Status = newStatusList[_random.Next(newStatusList.Count)];
+                        robot.BatteryLevel = Math.Max(0, robot.BatteryLevel - 10);
 
-                    context.Entry(robot).State = EntityState.Modified;
+
+                        context.Entry(robot).State = EntityState.Modified;
+                    }
                 }
+                else if (SelectedRobot != null && SelectedRobot.Id != -1)
+                {
+                    // Zaktualizuj wybrany robot 
+                    SelectedRobot.BatteryLevel = Math.Max(0, SelectedRobot.BatteryLevel - 10);
+                    var newStatusList = Statuses.Where(s => s != SelectedRobot.Status).ToList();
+                    SelectedRobot.Status = newStatusList[_random.Next(newStatusList.Count)];
+                    context.Entry(SelectedRobot).State = EntityState.Modified;
+             
 
-                context.SaveChanges();
+                }
+                    context.SaveChanges();
             }
 
             UpdateVisibleRobots();
