@@ -1,7 +1,7 @@
 # Struktura aplikacji WPF Robots
 ## 1.	Modele (Models)
 
-##### •	Robot: Klasa reprezentująca model danych dla robota. Posiada prawdopodobnie takie właściwości jak Id, Name, Status, BatteryLevel, ImagePath itp.
+##### •	Robot: Klasa reprezentująca model danych dla robota. Posiada Id, Name, Status, BatteryLevel, ImagePath itp.
 
 ## 2.	Modele Widoków (ViewModels)
 
