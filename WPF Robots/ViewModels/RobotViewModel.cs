@@ -1,12 +1,10 @@
-﻿using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.CommandWpf;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using WPF_Robots.Models;
 
@@ -96,24 +94,29 @@ namespace WPF_Robots.ViewModels
             UpdateVisibleRobots(); // Zaktualizuj widoczne roboty
         }
 
+        private static readonly List<string> Statuses = new List<string>
+        {
+            "W trakcie akcji",
+            "Dostępny",
+            "Niedostępny zajęty",
+            "Niedostępny Potrzebny asystent"
+        };
+
+
+        private readonly Random _random = new Random();
+
         private void UpdateRobot()
         {
             using (var context = new RobotContext())
             {
-                if (SelectedRobot != null && SelectedRobot.Id == -1)
-                {
-                    // Zaktualizuj wszystkie roboty
-                    foreach (var robot in Robots.Where(r => r.Id != -1))
-                    { 
-                        robot.BatteryLevel -= 1;
-                        context.Entry(robot).State = EntityState.Modified;
-                    }
-                }
-                else if (SelectedRobot != null && SelectedRobot.Id != -1)
-                {
-                    // Zaktualizuj wybrany robot 
-                    SelectedRobot.BatteryLevel -= 1;
-                    context.Entry(SelectedRobot).State = EntityState.Modified;
+                foreach (var robot in Robots.Where(r => r.Id != -1))
+                { 
+                    var newStatusList = Statuses.Where(s => s != robot.Status).ToList();
+                    robot.Status = newStatusList[_random.Next(newStatusList.Count)];
+                    robot.BatteryLevel = Math.Max(0, robot.BatteryLevel - 10);  
+    
+
+                    context.Entry(robot).State = EntityState.Modified;
                 }
 
                 context.SaveChanges();
@@ -121,6 +124,8 @@ namespace WPF_Robots.ViewModels
 
             UpdateVisibleRobots();
         }
+ 
+
 
         private void UpdateVisibleRobots()
         {
@@ -199,4 +204,4 @@ namespace WPF_Robots.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
-} 
+}
