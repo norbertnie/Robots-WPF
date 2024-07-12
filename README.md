@@ -1,77 +1,72 @@
-# Struktura aplikacji WPF Robots
-## 1.	Modele (Models)
+# Structure of the WPF Robots Application
+## 1. Models
 
-##### •	Robot: Klasa reprezentująca model danych dla robota. Posiada Id, Name, Status, BatteryLevel, ImagePath itp.
+##### • Robot: A class representing the data model for a robot. It has Id, Name, Status, BatteryLevel, ImagePath, etc.
 
-## 2.	Modele Widoków (ViewModels)
+## 2. ViewModels
 
-##### •	RobotViewModel: Jest to ViewModel dla aplikacji, który stosuje wzorzec MVVM (Model-View-ViewModel).
+##### • RobotViewModel: This is the ViewModel for the application, which follows the MVVM (Model-View-ViewModel) pattern.
 
-  ### Właściwości:   
+  ### Properties:
   
-##### •	Robots: Obserwowalna kolekcja obiektów Robot, reprezentująca wszystkie roboty.
-##### •	VisibleRobots: Obserwowalna kolekcja obiektów Robot, które są aktualnie widoczne w interfejsie użytkownika.
-##### •	SelectedRobot: Aktualnie wybrany robot.
-##### •	CurrentPage: Aktualna strona w paginacji robotów.
+##### • Robots: An observable collection of Robot objects, representing all robots.
+##### • VisibleRobots: An observable collection of Robot objects that are currently visible in the user interface.
+##### • SelectedRobot: The currently selected robot.
+##### • CurrentPage: The current page in the robot pagination.
    
+  ### Commands:
 
-  ### Polecenia (Commands):
+##### • LoadRobotsCommand: Command to load robots from the database.
+##### • UpdateRobotCommand: Command to update a robot or robots.
+##### • PreviousPageCommand: Command to go to the previous page of robots.
+##### • NextPageCommand: Command to go to the next page of robots.
+##### • SelectPreviousRobotCommand: Command to select the previous robot in the list.
+##### • SelectNextRobotCommand: Command to select the next robot in the list.
 
-##### •	LoadRobotsCommand: Polecenie ładowania robotów z bazy danych.
-##### •	UpdateRobotCommand: Polecenie aktualizacji robota lub robotów.
-##### •	PreviousPageCommand: Polecenie przejścia do poprzedniej strony robotów.
-##### •	NextPageCommand: Polecenie przejścia do następnej strony robotów.
-##### •	SelectPreviousRobotCommand: Polecenie wyboru poprzedniego robota na liście.
-##### •	SelectNextRobotCommand: Polecenie wyboru następnego robota na liście.
-
-  ### Metody:
+  ### Methods:
   
-##### •	LoadRobots(): Ładuje roboty z bazy danych.
-##### •	UpdateRobot(): Aktualizuje wybranego robota lub wszystkie roboty, jeśli wybrana jest opcja "Wszystkie".
-#### •	UpdateVisibleRobots(): Aktualizuje listę widocznych robotów na podstawie wybranego robota i bieżącej strony.
-#### •	Metody związane z paginacją: PreviousPage(), NextPage(), SelectPreviousRobot(), SelectNextRobot(), oraz ich warunki (CanPreviousPage(), CanNextPage(), CanSelectPreviousRobot(), CanSelectNextRobot()).
+##### • LoadRobots(): Loads robots from the database.
+##### • UpdateRobot(): Updates the selected robot or all robots if the "All" option is selected.
+#### • UpdateVisibleRobots(): Updates the list of visible robots based on the selected robot and the current page.
+#### • Pagination-related methods: PreviousPage(), NextPage(), SelectPreviousRobot(), SelectNextRobot(), and their conditions (CanPreviousPage(), CanNextPage(), CanSelectPreviousRobot(), CanSelectNextRobot()).
 
-## 3.	Widoki (Views)
+## 3. Views
 
-  ### 	MainWindow.xaml: Główny widok aplikacji, który definiuje interfejs użytkownika.
+  ### MainWindow.xaml: The main view of the application, which defines the user interface.
    
-  Składa się z dwóch głównych sekcji:
+  It consists of two main sections:
   
 
-**Górna siatka (Grid)** z menu, zawierająca przyciski nawigacyjne do wybierania robotów, przyciski do ładowania i aktualizowania robotów oraz kontrolkę RobotSelector.
+**Upper Grid** with a menu, containing navigation buttons for selecting robots, buttons for loading and updating robots, and the RobotSelector control.
 
-**Dolna siatka (Grid)** z kafelkami robotów, która wyświetla widoczne roboty w kontrolce ItemsControl.
+**Lower Grid** with robot tiles, which displays visible robots in the ItemsControl.
 
-**RobotSelector.xaml**: Niestandardowa kontrolka użytkownika, umożliwiająca wybór robota z listy. 
+**RobotSelector.xaml**: A custom user control allowing the selection of a robot from a list. 
 
-•	Składa się z przycisku głównego (MainButton), który wyświetla aktualnie wybranego robota, oraz popupu (Popup) zawierającego przyciski dla każdego robota.
+• It consists of a main button (MainButton) that displays the currently selected robot, and a popup (Popup) containing buttons for each robot.
 
-## Sposób działania aplikacji
+## Application Workflow
 
-### 1.	Ładowanie robotów:
+### 1. Loading robots:
 
-•	Po uruchomieniu aplikacji, wywoływana jest metoda LoadRobots(), która ładuje dane robotów z bazy danych i przypisuje je do kolekcji Robots. 
+• When the application starts, the LoadRobots() method is called, which loads robot data from the database and assigns it to the Robots collection. 
 
-### 2.	Wyświetlanie robotów:
+### 2. Displaying robots:
 
-•	Właściwość VisibleRobots jest aktualizowana na podstawie wybranego robota (SelectedRobot) oraz bieżącej strony (CurrentPage). Jeśli wybrana jest opcja "Wszystkie",
-  	  wyświetlane są wszystkie roboty z paginacją. Jeśli wybrany jest konkretny robot, wyświetlany jest tylko ten robot.
+• The VisibleRobots property is updated based on the selected robot (SelectedRobot) and the current page (CurrentPage). If the "All" option is selected, all robots are displayed with pagination. If a specific robot is selected, only that robot is displayed.
 
-### 3.	Nawigacja między robotami:
+### 3. Navigating between robots:
 
-   •	Przyciski < i > umożliwiają nawigację między robotami w liście. Po ich kliknięciu, aktualizowany jest wybrany robot (SelectedRobot), co powoduje aktualizację wyświetlanego
-  	  tekstu oraz obrazu w kontrolce RobotSelector.
+• The < and > buttons allow navigation between robots in the list. Clicking these buttons updates the selected robot (SelectedRobot), which updates the displayed text and image in the RobotSelector control.
 
-
-### 4.	Aktualizacja robotów:
+### 4. Updating robots:
    
-  •	Przyciski do ładowania (LoadRobotsCommand) i aktualizowania (UpdateRobotCommand) robotów wykonują odpowiednie polecenia. Aktualizacja może dotyczyć pojedynczego robota lub wszystkich robotów, w zależności od tego, który robot jest aktualnie wybrany.
+• The buttons for loading (LoadRobotsCommand) and updating (UpdateRobotCommand) robots execute the appropriate commands. The update can pertain to a single robot or all robots, depending on the currently selected robot.
 
-### 5.	Wybór robota z listy:
-•	Kliknięcie na przycisk w kontrolce RobotSelector otwiera popup z listą robotów. Po wybraniu robota, aktualizowany jest SelectedRobot, co powoduje zamknięcie popupu i aktualizację
-  wyświetlanego tekstu oraz obrazu w przycisku głównym kontrolki RobotSelector.
+### 5. Selecting a robot from the list:
+• Clicking the button in the RobotSelector control opens a popup with a list of robots. Selecting a robot updates the SelectedRobot, which closes the popup and updates the displayed text and image in the main button of the RobotSelector control.
 
-### 6.	Filtracja robotów:
-•	Po wybraniu robota z listy, interfejs jest filtrowany, aby pokazać tylko wybranego robota. Jeśli wybrana jest opcja "Wszystkie", wyświetlane są wszystkie roboty z paginacją.
+### 6. Filtering robots:
+• After selecting a robot from the list, the interface is filtered to show only the selected robot. If the "All" option is selected, all robots are displayed with pagination.
 
-### Aplikacja ta korzysta z wzorca MVVM, co umożliwia oddzielenie logiki biznesowej od logiki interfejsu użytkownika, co jest korzystne dla testowania i utrzymania kodu.
+### This application uses the MVVM pattern, which allows separating business logic from the user interface logic, which is beneficial for testing and code maintenance.
